@@ -4,6 +4,12 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "MT_MOVIE")
+@NamedQueries({
+        @NamedQuery(
+         name = "Movie.findByTitle",
+         query = "select m from Movie m where m.title like :TITLE"
+        )
+})
 public class Movie {
 
     @Id

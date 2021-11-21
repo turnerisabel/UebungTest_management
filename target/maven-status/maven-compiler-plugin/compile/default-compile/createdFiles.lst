@@ -1,9 +1,0 @@
-at\htl\movietheater\entity\Show.class
-at\htl\movietheater\control\InitBean.class
-at\htl\movietheater\boundary\ShowEndpoint.class
-at\htl\movietheater\control\TheaterRepository.class
-at\htl\movietheater\control\ShowRepository.class
-at\htl\movietheater\control\MovieRepository.class
-at\htl\movietheater\entity\Genre.class
-at\htl\movietheater\entity\Movie.class
-at\htl\movietheater\entity\Theater.class
