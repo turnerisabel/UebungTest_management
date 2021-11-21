@@ -3,8 +3,9 @@ package at.htl.movietheater.entity;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name = "MT_MOVIE")
 public class Movie {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "MO_ID")

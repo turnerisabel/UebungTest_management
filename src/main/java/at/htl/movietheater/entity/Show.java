@@ -2,6 +2,8 @@ package at.htl.movietheater.entity;
 
 import javax.persistence.*;
 
+@Entity
+@Table(name = "MT_SHOW")
 @NamedQueries({
         @NamedQuery(
                 name = "Show.findLastShow",
@@ -10,14 +12,25 @@ import javax.persistence.*;
 })
 public class Show {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "SH_ID")
     private Long id;
 
+    @ManyToOne
+    @Column(name = "SH_MO_ID")
     private Movie movie;
 
+    @ManyToOne
+    @Column(name = "SH_TH_ID")
     private Theater theater;
 
+    @ManyToOne
+    @Column(name = "SH_PREV_SHOW_ID")
     private Show prevShow;
 
+    @ManyToOne
+    @Column(name = "SH_NEXT_SHOW_ID")
     private Show nextShow;
 
     public Show() {
