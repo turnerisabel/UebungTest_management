@@ -17,20 +17,20 @@ public class Show {
     @Column(name = "SH_ID")
     private Long id;
 
+    @JoinColumn(name = "SH_MO_ID")
     @ManyToOne
-    @Column(name = "SH_MO_ID")
     private Movie movie;
 
+    @JoinColumn(name = "SH_TH_ID")
     @ManyToOne
-    @Column(name = "SH_TH_ID")
     private Theater theater;
 
-    @ManyToOne
-    @Column(name = "SH_PREV_SHOW_ID")
+    @JoinColumn(name = "SH_PREV_SHOW_ID")
+    @OneToOne
     private Show prevShow;
 
-    @ManyToOne
-    @Column(name = "SH_NEXT_SHOW_ID")
+    @JoinColumn(name = "SH_NEXT_SHOW_ID")
+    @OneToOne
     private Show nextShow;
 
     public Show() {
