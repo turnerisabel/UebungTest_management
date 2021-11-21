@@ -5,6 +5,7 @@ import at.htl.movietheater.entity.Theater;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
+import javax.persistence.NoResultException;
 import javax.persistence.TypedQuery;
 import javax.transaction.Transactional;
 
@@ -42,9 +43,13 @@ public class TheaterRepository {
      * @return the theater (with the given name) or null, when the name is not in the db
      */
     public Theater findByName(String name) {
-        TypedQuery<Theater> theaterTypedQuery = em
-                .createNamedQuery("Theater.findByName", Theater.class)
-                .setParameter("NAME", name);
-        return theaterTypedQuery.getSingleResult();
+        try {
+            TypedQuery<Theater> theaterTypedQuery = em
+                    .createNamedQuery("Theater.findByName", Theater.class)
+                    .setParameter("NAME", name);
+            return theaterTypedQuery.getSingleResult();
+        }catch (NoResultException e ){
+            return null;
+        }
     }
 }
