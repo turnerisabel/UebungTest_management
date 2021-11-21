@@ -4,16 +4,11 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "MT_SHOW")
-@NamedQueries({
-        @NamedQuery(
-                name = "Show.findLastShow",
-                query = "select s from MT_SHOW s order by s.id desc"
-        )
-})
+@SequenceGenerator(name = "showSeq", initialValue = 1000)
 public class Show {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "showSeq")
     @Column(name = "SH_ID")
     private Long id;
 
